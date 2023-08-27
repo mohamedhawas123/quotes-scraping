@@ -1,0 +1,57 @@
+# Web Scraper and API Documentation
+
+This project demonstrates the implementation of a Python-based web scraper that collects data from a quotes, stores the data in a PostgreSQL database, and exposes the data through a simple API using FastAPI. The project showcases clean, efficient, and scalable coding practices.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [API Documentation](#api-documentation)
+
+## Overview
+
+This project consists of three main components:
+1. **Web Scraper:** A Python script that scrapes data from a chosen website and handles errors gracefully.
+2. **Database:** A PostgreSQL database to efficiently store the scraped data.
+3. **API:** A FastAPI-based API that exposes the stored data and supports filtering.
+
+## Prerequisites
+
+Before you begin, ensure you have the following prerequisites:
+
+- Python 
+- PostgreSQL database
+- FastAPI (install using `pip install fastapi`)
+- Requests (install using `pip install requests`)
+- psycopg2 (install using `pip install psycopg2-binary`)
+
+## Installation
+
+1. Clone this repository to your local machine: https://github.com/mohamedhawas123/quotes-scraping.git
+
+2. pip install -r requirements.txt
+
+3. uvicorn app.api:app 
+
+
+#API Documentation
+
+1-http://127.0.0.1:8000/quotes
+ // to get all quotes that has scraped from the webiste https://quotes.toscrape.com/
+
+2-http://127.0.0.1:8000/quotes?author=author_name 
+//to get all quotes that relate to specific author
+
+#DEPLOYMENT
+
+deployed API: https://quotes-scraping-production.up.railway.app/quotes 
+GETHUB: https://github.com/mohamedhawas123/quotes-scraping.git
+
+##DATABASE DESIGN
+
+CREATE TABLE quotes (
+    id SERIAL PRIMARY KEY,
+    quote TEXT NOT NULL,
+    author VARCHAR(255) NOT NULL
+);
